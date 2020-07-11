@@ -1,32 +1,37 @@
 import java.util.*;
 import javax.mail.*;
 import javax.mail.internet.*;
-import javax.activation.*;
+// import javax.activation.*;
 
 public class SendEmail 
 {
+    public static void main(String[] args)
+    {
+        //////////Trial Session
+        String to = "aleesfca@gmail.com";
+        String from = "aleesfca@gmail.com";
+        String host = "localhost";
+        String message = "here you go";
+        //////////////////////
+        Send(to, from, host, message);
+    }
     public static void Send(String to, String from, String host, String message)
     {
         Properties prop = System.getProperties();
-        prop.setProperty("mail.smtp.host", host)
-        Sessions session = Session.getDefaultInstance(prop);
-        //////////Trial Session
-        to = "aleesfca@gmail.com";
-        from = "allee2@s.sfusd.edu";
-        host = "localhost";
-        //////////////////////
+        prop.setProperty("mail.smtp.host", host);
+        Session session = Session.getDefaultInstance(prop);
         try{
-            MimeMessage message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(from));
-            message.addRecipient(Message.RecipientType.TO, new InternetAddress(t0));
-            message.setSubject("Your Mental Advice!");
-            message.setText("Example Message");
-            Transport.send(message);
+            MimeMessage mess = new MimeMessage(session);
+            mess.setFrom(new InternetAddress(from));
+            mess.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+            mess.setSubject("Your Mental Advice!");
+            mess.setText("Example Message");
+            Transport.send(mess);
             System.out.println("Sent message successfully....");
         }
-        catch (MessagingExcpetion mex)
+        catch (MessagingException mex)
         {
             mex.printStackTrace();
         }
     }
-}
+} 
