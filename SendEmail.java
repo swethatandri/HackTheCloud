@@ -6,16 +6,6 @@ import javax.mail.internet.*;
 public class SendEmail 
 {
     // In the final version, we need to delete main method because DBConnect will call the class
-    public static void main(String[] args)
-    {
-        //////////Trial Session
-        String to = "aleesfca@gmail.com";
-        String from = "aleesfca@gmail.com";
-        String host = "localhost";
-        String message = "here you go";
-        //////////////////////
-        Send(to, from, host, message);
-    }
     public static void Send(String to, String from, String host, String message)
     {
         Properties prop = System.getProperties();
@@ -26,9 +16,9 @@ public class SendEmail
             mess.setFrom(new InternetAddress(from));
             mess.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
             mess.setSubject("Your Mental Advice!");
-            mess.setText("Example Message");
+            mess.setText(message);
             Transport.send(mess);
-            System.out.println("Sent message successfully....");
+            //System.out.println("Sent message successfully....");
         }
         catch (MessagingException mex)
         {
