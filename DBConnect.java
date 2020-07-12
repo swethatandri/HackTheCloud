@@ -10,20 +10,20 @@ public class DBConnect
     public String message = "";
     public static void main(String[]args)
     {
-        String final host = "";
+        String final host = "localhost";
         String final uName = "";
         String final uPass = "a58877"; 
         List<String> sentences = new ArrayList<String>();
-        Connection con = DriverManager.getConnection(host, username, password); 
+        Connection con = DriverManager.getConnection("localhost", "root", ""); 
         ///Check the column and table names
-        String query = "SELECT category, sentence from Table_Title LIKE 'variable'";
+        String query = "SELECT Category, Statement from MedicalTable LIKE 'variable'";
         Statement state = yourconnection.createStatement();
         try
         {
             ResultSet result = state.executeQuery(query);
             while(result.next())
             {
-                ///Check if sentence is the second column or not
+                if(result.getString(1)== variable)
                 sentences.add(result.getString(2));
             }
         }
