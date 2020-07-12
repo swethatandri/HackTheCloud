@@ -5,6 +5,7 @@ import javax.mail.internet.*;
 
 public class SendEmail 
 {
+    // In the final version, we need to delete main method because DBConnect will call the class
     public static void main(String[] args)
     {
         //////////Trial Session
@@ -34,4 +35,4 @@ public class SendEmail
             mex.printStackTrace();
         }
     }
-} 
+}
