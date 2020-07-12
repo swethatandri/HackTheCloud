@@ -8,15 +8,15 @@ import java.sql.SQLException;
 public class DBConnect
 {
     public String message = "";
-    public static void main(String[]args)
+    public static void Connect(String variable, String receiving)
     {
         String final host = "localhost";
-        String final uName = "";
-        String final uPass = "a58877"; 
+        String final uName = "root";
+        String final uPass = ""; 
         List<String> sentences = new ArrayList<String>();
         Connection con = DriverManager.getConnection("localhost", "root", ""); 
         ///Check the column and table names
-        String query = "SELECT Category, Statement from MedicalTable LIKE 'variable'";
+        String query = "SELECT Category, Statement from MedicalTable LIKE variable";
         Statement state = yourconnection.createStatement();
         try
         {
@@ -36,9 +36,6 @@ public class DBConnect
        {
            message = message + sentences.get(i) + "\n";
        }
-    }
-    public static void Email(String receiving)
-    {
         SendEmail newEmail = new SendEmail(receiving, "aleesfca@gmail.com", "localhost", message); 
     }
 }
