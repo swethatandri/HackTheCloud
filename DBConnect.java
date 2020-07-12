@@ -23,7 +23,7 @@ public class DBConnect
             ResultSet result = state.executeQuery(query);
             while(result.next())
             {
-                if(result.getString(1)== variable)
+                if(result.getString(1).equals(variable))
                 sentences.add(result.getString(2));
             }
         }
