@@ -11,8 +11,8 @@ public class DBConnect
     public static void Connect(String variable, String receiving)
     {
         String final host = "localhost";
-        String final uName = "";
-        String final uPass = "a58877"; 
+        String final uName = "root";
+        String final uPass = ""; 
         List<String> sentences = new ArrayList<String>();
         Connection con = DriverManager.getConnection("localhost", "root", ""); 
         ///Check the column and table names
