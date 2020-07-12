@@ -11,8 +11,8 @@ public class DBConnect
     public static void Connect(String variable, String receiving)
     {
         String final host = "localhost";
-        String final uName = "root";
-        String final uPass = ""; 
+        String final uName = "";
+        String final uPass = "a58877"; 
         List<String> sentences = new ArrayList<String>();
         Connection con = DriverManager.getConnection("localhost", "root", ""); 
         ///Check the column and table names
@@ -36,6 +36,7 @@ public class DBConnect
        {
            message = message + sentences.get(i) + "\n";
        }
-        SendEmail newEmail = new SendEmail(receiving, "aleesfca@gmail.com", "localhost", message); 
+        SendEmail newEmail = new SendEmail();
+        newEmail.Send(receiving, "aleesfca@gmail.com", "localhost", message); 
     }
 }
