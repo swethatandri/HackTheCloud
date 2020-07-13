@@ -8,6 +8,7 @@
 body{
   background-color: #F7DFD1;
   border: 20px #03256C solid;
+  border-bottom: 50px #03256C solid;
 }
 
 .header{
@@ -20,7 +21,7 @@ body{
 
 .navbar {
   overflow: hidden;
-  background-color: #03256C;
+  
   color: white;
 }
 .categories{
@@ -77,12 +78,9 @@ body{
 .rectangle{
 
   margin-top: 3%;
-  display: flex;
-  justify-content: space-between;
- margin-left: 3%;
   background-color: #3EC1DC;
   padding: 5%;
-  margin-bottom: 2%;
+  margin-bottom: -18%;
   
 
 }
@@ -142,8 +140,8 @@ footer{
 
 .title{
 
-  padding-left: 4%;
-
+  
+  padding: 0.5%;
   font-size: 300%;
 }
 

@@ -65,3 +65,19 @@ h1{
 .white{
   color: white;
 }
+
+
+.navbar {
+  overflow: hidden;
+  
+  color: white;
+
+
+
+}
+
+a{
+  color: white;
+  text-decoration: none;
+}
+
