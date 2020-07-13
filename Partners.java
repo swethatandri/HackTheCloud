@@ -10,9 +10,12 @@ public class Servlet extends HttpServlet
 {
     protected void doPOST(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
     {
+        System.out.println("First");
         String Email = request.getParameter("address");
         String Category = request.getParameter("category");
+        System.out.println("Problem before connect?");
         DBConnect connect = new DBConnect ();
+        System.out.println("Class problem?");
         connect.Connect(Category, Email);
     }
  
