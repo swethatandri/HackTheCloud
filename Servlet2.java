@@ -14,6 +14,7 @@ public class Servlet2 extends HttpServlet
 {
     protected void doPOST(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
     {
+    System.out.println("Second");
         String category = request.getParameter("address");
         String statement= request.getParameter("category");
         try
@@ -23,8 +24,11 @@ public class Servlet2 extends HttpServlet
             //In a previous program, I replace url with "local host" but another tutorial says to use url. 
             //It is preferable to use url IF WE CAN FIND IT
             Connection conn = DriveManager.getConnection("/update", "root", "");
+            System.out.println("Second con?");
             Statement stat = conn.createStatement();
+            System.out.println("createt");
             stat.executeUpdate("INSERT INTO MedicalTable " + "VALUES (category, statement)");
+            System.out.println("insert");
             conn.close();
         }
         catch (Exception e)
