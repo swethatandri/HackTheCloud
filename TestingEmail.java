@@ -15,16 +15,9 @@ import javax.mail.internet.MimeMessage;
 import javax.activation.*;
 import javax.mail.PasswordAuthentication;
 
-public class TestingEmail {
+public class SendEmail {
     // In the final version, we need to delete main method because DBConnect will
     // call the class
-    public static void main(String[] args) {
-        String hosts= "smtp.gmail.com";
-        System.out.println("Got this far1");
-        Send("aleesfca@gmail.com", "aleesfca@gmail.com", "smtp.gmail.com", "you got it?");
-        System.out.println("Got this far");
-    }
-
     public static void Send(String to, String from, String host, String message) {
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com");
@@ -45,38 +38,36 @@ public class TestingEmail {
         props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
 
         props.put("mail.smtp.socketFactory.fallback", "false");
-        System.out.println("got to password authentication");
+        //System.out.println("got to password authentication");
         Session session = Session.getInstance(props, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
-        return new PasswordAuthentication("aleesfca@gmail.com", "Fuzzyhouse54");
+        return new PasswordAuthentication("aleesfca@gmail.com", "a58877aaa");
         }
         });
            ///////////////////////////////////////
-           System.out.println ("here");
         try{
             Message mess = new MimeMessage(session);
             //////////////
             session.setDebug(true);
             Transport transport = session.getTransport();
-            System.out.println("Are we there");
+            //System.out.println("Are we there");
             InternetAddress addressTo=new InternetAddress(to);  
             InternetAddress addressFrom= new InternetAddress(from);
-            System.out.println("bad");
-           mess.setRecipient(Message.RecipientType.TO,addressTo);  
-           System.out.println("AWesome?");
+            //System.out.println("bad");
+           mess.setRecipient(Message.RecipientType.TO,addressTo); 
            //////////////////
            //transport.connect();
-            System.out.println("2b or not 1b");
+            //System.out.println("2b or not 1b");
             //mess.setFrom(new InternetAddress(from));
             //mess.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
             mess.setFrom(addressFrom);
             mess.addRecipient(Message.RecipientType.TO, addressTo);
             mess.setSubject("Your Mental Advice!");
             mess.setText(message);
-            System.out.println("this far???");
+            //System.out.println("this far???");
             Transport.send(mess);
-            System.out.println("Sent message successfully....");
-            //transport.close();
+            //System.out.println("Sent message successfully....");
+            transport.close();
         }
         catch (MessagingException mex)
         {
