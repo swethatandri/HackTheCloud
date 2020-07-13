@@ -14,13 +14,10 @@ public class DBConnect
         String final uName = "root";
         String final uPass = ""; 
         List<String> sentences = new ArrayList<String>();
-        System.out.println("Are we here?");
         Connection con = DriverManager.getConnection("localhost", "root", ""); 
-        System.out.println("Here");
         ///Check the column and table names
         String query = "SELECT Category, Statement from MedicalTable LIKE variable";
         Statement state = yourconnection.createStatement();
-        System.out.println("Connection?");
         try
         {
             ResultSet result = state.executeQuery(query);
@@ -30,7 +27,6 @@ public class DBConnect
                 sentences.add(result.getString(2));
             }
         }
-        System.out.println("2b or 1b?");
         finally
         {
             state.close();
