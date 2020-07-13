@@ -10,11 +10,11 @@ public class DBConnect
     public String message = "";
     public static void Connect(String variable, String receiving)
     {
-        String final host = "smtp.gmail.com";
+        String final host = "localhost";
         String final uName = "root";
         String final uPass = ""; 
         List<String> sentences = new ArrayList<String>();
-        Connection con = DriverManager.getConnection("smtp.gmail.com", "root", ""); 
+        Connection con = DriverManager.getConnection("localhost", "root", ""); 
         ///Check the column and table names
         String query = "SELECT Category, Statement from MedicalTable LIKE variable";
         Statement state = yourconnection.createStatement();
