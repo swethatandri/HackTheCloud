@@ -9,7 +9,7 @@ import java.util.Calender;
 
 //This Class inputs user information into SPL Database
 //Need to replace the link in parentheses to correspond to the HTTP page
-@WebServlet("update")
+@WebServlet("/update")
 public class Servlet2 extends HttpServlet 
 {
     protected void doPOST(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
@@ -19,10 +19,10 @@ public class Servlet2 extends HttpServlet
         try
         {
             // Ask or find out the database url
-            String url = "update";
+            String url = "/update";
             //In a previous program, I replace url with "local host" but another tutorial says to use url. 
             //It is preferable to use url IF WE CAN FIND IT
-            Connection conn = DriveManager.getConnection("update", "root", "");
+            Connection conn = DriveManager.getConnection("/update", "root", "");
             Statement stat = conn.createStatement();
             stat.executeUpdate("INSERT INTO MedicalTable " + "VALUES (category, statement)");
             conn.close();
