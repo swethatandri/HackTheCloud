@@ -10,11 +10,11 @@ public class DBConnect
     public String message = "";
     public static void Connect(String variable, String receiving)
     {
-        String final host = "localhost";
+        String final host = "smtp.gmail.com";
         String final uName = "root";
         String final uPass = ""; 
         List<String> sentences = new ArrayList<String>();
-        Connection con = DriverManager.getConnection("localhost", "root", ""); 
+        Connection con = DriverManager.getConnection("smtp.gmail.com", "root", ""); 
         ///Check the column and table names
         String query = "SELECT Category, Statement from MedicalTable LIKE variable";
         Statement state = yourconnection.createStatement();
@@ -37,6 +37,6 @@ public class DBConnect
            message = message + sentences.get(i) + "\n";
        }
         SendEmail newEmail = new SendEmail();
-        newEmail.Send(receiving, "aleesfca@gmail.com", "localhost", message); 
+        newEmail.Send(receiving, "aleesfca@gmail.com", "smtp.gmail.com", message); 
     }
 }
